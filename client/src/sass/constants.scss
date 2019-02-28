@@ -1,0 +1,25 @@
+$mobile-breakpoint: 768px;
+$desktop-columns : 3;
+$mobile-columns : 2;
+$column-width :  ($mobile-breakpoint+1)/$desktop-columns;
+$mobile-column-width : $column-width * $mobile-columns;
+$desktop-grid-max-width: $column-width*$desktop-columns;
+
+$default-font: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+
+@mixin desktop {
+  @media (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin extra-small {
+  @media (max-width: $mobile-column-width) {
+    @content;
+  }
+}
+
+h1{
+  font-family: $default-font;
+  font-weight: 700;
+}

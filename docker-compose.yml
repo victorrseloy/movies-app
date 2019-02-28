@@ -1,0 +1,26 @@
+version: "2"
+services:
+  server:
+    build:
+      context: ./server
+    command: yarn start
+    working_dir: /usr/app
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "5000:5000"
+  client:
+    depends_on:
+      - server
+    build:
+      context: ./client
+    command: yarn start
+    working_dir: /usr/app
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"
+
+

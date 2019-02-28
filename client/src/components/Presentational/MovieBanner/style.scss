@@ -1,0 +1,28 @@
+@import "sass/app.scss";
+
+$line-height: 1.3em;
+$max-lines: 2;
+
+.movie-banner{
+  padding: 0 10px;
+  width: $column-width;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include extra-small{
+    width:50vw;
+  }
+
+  img{
+    width: 100%;
+    box-shadow: 0 0 7px 1px;
+  }
+
+  h3{
+    line-height: $line-height;
+    height: $max-lines* $line-height;
+  }
+
+}

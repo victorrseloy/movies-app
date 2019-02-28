@@ -1,0 +1,10 @@
+@import "sass/app.scss";
+
+.movies-banner-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:auto;
+  max-width: $desktop-grid-max-width;
+
+}
