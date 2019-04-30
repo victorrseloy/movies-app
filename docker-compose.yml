@@ -3,6 +3,11 @@ services:
   server:
     build:
       context: ./server
+    environment:
+      TOTAL_MOVIES_PER_REQUEST: ${TOTAL_MOVIES_PER_REQUEST}
+      MOVIES_API: ${MOVIES_API}
+      OMBD_KEY: ${OMBD_KEY}
+      OMBD_API_ENDPOINT: ${OMBD_API_ENDPOINT}
     command: yarn start
     working_dir: /usr/app
     volumes:
@@ -15,6 +20,11 @@ services:
       - server
     build:
       context: ./client
+    environment:
+      REACT_APP_DEBOUNCE_INTERVAL_IN_MS : ${DEBOUNCE_INTERVAL_IN_MS}
+      REACT_APP_MIN_SEARCH_LENGTH : ${MIN_SEARCH_LENGTH}
+      REACT_APP_MOVIES_API: ${MOVIES_API}
+      REACT_APP_FRONTEND_CACHE_IN_SECONDS: ${FRONTEND_CACHE_IN_SECONDS}
     command: yarn start
     working_dir: /usr/app
     volumes:

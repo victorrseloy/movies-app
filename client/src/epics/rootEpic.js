@@ -5,6 +5,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounce';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/of';
@@ -14,8 +15,8 @@ import actionTypes from 'actions/actionTypes';
 import * as moviesService from 'services/moviesService';
 import * as moviesActions from 'actions/moviesActions';
 
-const DEBOUNCE_INTERVAL_IN_MS = 300;
-const MIN_MOVIES_SEARCH_LENGTH = 3;
+const DEBOUNCE_INTERVAL_IN_MS = parseInt(process.env.REACT_APP_DEBOUNCE_INTERVAL_IN_MS);
+const MIN_MOVIES_SEARCH_LENGTH = parseInt(process.env.REACT_APP_MIN_SEARCH_LENGTH);
 
 /**
  *
@@ -23,9 +24,9 @@ const MIN_MOVIES_SEARCH_LENGTH = 3;
  * us to easily debounce multiple requests or filter payloads that shouldn't really trigger an action.
  *
  */
-function loadMoviesEpic($action) {
+export function loadMoviesEpic($action) {
   return $action
-    .ofType(actionTypes.MOVIES.LOAD_MOVIES)
+    .filter( ({type}) => type === actionTypes.MOVIES.LOAD_MOVIES)
     .debounce(() => interval(DEBOUNCE_INTERVAL_IN_MS))
     .filter(({ payload }) => payload.length >= MIN_MOVIES_SEARCH_LENGTH)
     .switchMap(({ payload }) => {

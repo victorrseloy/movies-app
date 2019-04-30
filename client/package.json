@@ -28,7 +28,7 @@
     "precommit": "lint-staged",
     "lint": "eslint ./ --ext=js --ext=jsx",
     "lint:fix": "eslint ./ --ext=js --ext=jsx --fix",
-    "test:debug": "react-scripts --inspect-brk test --runInBand"
+    "test:debug": "react-scripts --inspect-brk test  --no-cache --no-watch --runInBand"
   },
   "eslintConfig": {
     "extends": "react-app"
