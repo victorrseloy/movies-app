@@ -15,8 +15,12 @@ import actionTypes from 'actions/actionTypes';
 import * as moviesService from 'services/moviesService';
 import * as moviesActions from 'actions/moviesActions';
 
-const DEBOUNCE_INTERVAL_IN_MS = parseInt(process.env.REACT_APP_DEBOUNCE_INTERVAL_IN_MS);
-const MIN_MOVIES_SEARCH_LENGTH = parseInt(process.env.REACT_APP_MIN_SEARCH_LENGTH);
+const DEBOUNCE_INTERVAL_IN_MS = parseInt(
+  process.env.REACT_APP_DEBOUNCE_INTERVAL_IN_MS
+);
+const MIN_MOVIES_SEARCH_LENGTH = parseInt(
+  process.env.REACT_APP_MIN_SEARCH_LENGTH
+);
 
 /**
  *
@@ -26,7 +30,7 @@ const MIN_MOVIES_SEARCH_LENGTH = parseInt(process.env.REACT_APP_MIN_SEARCH_LENGT
  */
 export function loadMoviesEpic($action) {
   return $action
-    .filter( ({type}) => type === actionTypes.MOVIES.LOAD_MOVIES)
+    .filter(({ type }) => type === actionTypes.MOVIES.LOAD_MOVIES)
     .debounce(() => interval(DEBOUNCE_INTERVAL_IN_MS))
     .filter(({ payload }) => payload.length >= MIN_MOVIES_SEARCH_LENGTH)
     .switchMap(({ payload }) => {

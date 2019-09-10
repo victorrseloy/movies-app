@@ -12,7 +12,13 @@ const noResultsImage = require('./img/no-results.png');
 const gearImage = require('./img/Gear-1s-200px.gif');
 
 // eslint-disable-next-line react/prop-types
-export const MovieSearchView = ({ onChange, movies, results, loading, error }) => {
+export const MovieSearchView = ({
+  onChange,
+  movies,
+  results,
+  loading,
+  error,
+}) => {
   return (
     <div className="container movies-search-view">
       <div className="nav">
