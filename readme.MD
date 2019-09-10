@@ -1,4 +1,4 @@
-# **Al Tayer Digital - Fullstack Case Study**
+# **Fullstack Case Study**
 
 The goal of the case study was to create a simple build a simple website that with a search box where a user will be able to search for movies by name and see the list of the results.
 
@@ -82,11 +82,3 @@ I believe that I spent around 6 hours of work to setup the docker structure and 
 of time given a good amount. I wouldn't really change much besides of writting more and better test cases adding
 linting and pretty to the server.
 
-##Boillerplates used
-
-The only boillerplate used was the react one, I created the app with create react app
-
-##Final considerations
-
-Irrespective of the outcome I had a lot of fun writting this app and I'm keen to receive the feedback as I strongly belie
-that feedback makes us better professionals.
